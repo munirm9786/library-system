@@ -18,7 +18,7 @@ class HashMap:
     def add_book(self, book):
         index = self._hash(book.isbn)
         for item in self.buckets[index]:
-            if item.isbn = book.isbn:  
+            if item.isbn == book.isbn:  
                 return "Book already exists."
         self.buckets[index].append(book)
 
