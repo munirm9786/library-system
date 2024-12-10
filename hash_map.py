@@ -37,14 +37,15 @@ class HashMap:
                 return book
         return "Book not found."
 
-    def remove_book(self, ISBN):
-        #Removes a book by ISBN
-        index = self._hash(isbn)
-        for book in self.buckets[index]:
-            if book.isbn == isbn:
-                self.buckets[index].remove(book)
-                return "Book removed successfully."
-        return "Book not found."
+   def remove_book(self, isbn):
+    # Removes a book by ISBN
+    index = self._hash(isbn)
+    for book in self.buckets[index]:
+        if book.isbn == isbn:
+            self.buckets[index].remove(book)
+            return "Book removed successfully."
+    return "Book not found."
+
 
     def __repr__(self):  # string representation of hash map
         return f"HashMap({self.buckets})"
