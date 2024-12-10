@@ -66,6 +66,15 @@ class TestLibrarySystem(unittest.TestCase):
         """Test merge_sort function with an invalid key."""
         with self.assertRaises(AttributeError):
             merge_sort(self.books, "invalid_key")
+    def test_merge_sort_empty_list(self):
+    """Test merge_sort with an empty list."""
+    self.assertEqual(merge_sort([], "title"), [])
+
+    def test_merge_sort_single_element(self):
+    """Test merge_sort with a single book."""
+    single_book = [Book("99999", "Single Book", "Author X", 2000)]
+    self.assertEqual(merge_sort(single_book, "title"), single_book)
+
 
 
 if __name__ == "__main__":
