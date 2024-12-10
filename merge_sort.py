@@ -1,27 +1,28 @@
+# Merge sort function to sort books by an attribute
 def merge_sort(books, key):
-    """Performs merge sort on a list of books based on a specified key."""
+    # Base case for recursion
     if len(books) <= 1:
-        return books  # a list with one or no element is already sortedd
-    mid = len(books) // 2  # find the middle index to divide the list
-    left = merge_sort(books[:mid], key)
-    right = merge_sort(books[mid:], key)
-    #merge the sorted halved
-    return merge(left, right, key)
+        return books
+    mid = len(books) // 2  # Split the list into halves
+    left = merge_sort(books[:mid], key)  # Sort left half
+    right = merge_sort(books[mid:], key)  # Sort right half
+    return merge(left, right, key)  # Merge sorted halves
 
 
+# Merge two sorted lists
 def merge(left, right, key):
-    """Merges two sorted lists into one based on a specified key."""
-    result = []
-    i = j = 0
+    result = []  # List to store merged results
+    i = j = 0  # Pointers for left and right lists
+
+    # Compare and merge
     while i < len(left) and j < len(right):
-        # Compare based on the key attribute
         if getattr(left[i], key) <= getattr(right[j], key):
-            result.append(left[i])
+            result.append(left[i])  # Add smaller element
             i += 1
         else:
             result.append(right[j])
             j += 1
-    #   Add any remaining elements from the left list if there is any
-    result.extend(left[i:])
-    result.extend(right[j:])  # Add any remaining elements from the right list if there is any
+
+    result.extend(left[i:])  # Add remaining elements from left
+    result.extend(right[j:])  # Add remaining elements from right
     return result
