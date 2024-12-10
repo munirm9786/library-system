@@ -1,3 +1,5 @@
+from library_system import Book
+
 class Book:
     def __init__(self, isbn, title, author, year):
         #book attributes
