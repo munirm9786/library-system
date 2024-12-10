@@ -1,5 +1,6 @@
 import unittest
-from library-system import Book, HashMap, merge_sort  
+from library_system import Book, HashMap, merge_sort
+
 
 class TestLibrarySystem(unittest.TestCase):
     def setUp(self):
